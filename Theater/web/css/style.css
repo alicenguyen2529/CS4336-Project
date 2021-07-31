@@ -35,3 +35,30 @@ body{
     position: fixed;
     top: 0;
 }
+
+.main {
+    margin: 20px;
+    background-color: black;
+}
+
+.theater_name {
+    color: #fff;
+    font-size: 60px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    line-height: 1.25em;
+    font-family: gordita,Helvetica,sans-serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.theater_address {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 300;
+    margin-top: 0;
+    line-height: 1.9em;
+    font-style: normal;
+    font-family: gordita,Helvetica,sans-serif;
+}

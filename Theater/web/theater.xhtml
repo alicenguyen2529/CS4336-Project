@@ -8,11 +8,11 @@
         <link rel="stylesheet" href="css/style.css"> </link>
         <title>Movies</title>
     </h:head>
-    <h:body>
-        <div class="main">
+    <h:body class="main">
+        <div>
             <h:form>
-                <h1>#{showTheaterBean.theater.theatername}</h1>
-                <h3>#{showTheaterBean.theater.address} #{showTheaterBean.theater.city}, #{showTheaterBean.theater.state} #{showTheaterBean.theater.zipcode}</h3>
+                <h1 class="theater_name">#{showTheaterBean.theater.theatername}</h1>
+                <h3 class="theater_address">#{showTheaterBean.theater.address} #{showTheaterBean.theater.city}, #{showTheaterBean.theater.state} #{showTheaterBean.theater.zipcode}</h3>
                 
                 <br/>
                 <h:commandButton value="Back to main page" action="index.xhtml"/>

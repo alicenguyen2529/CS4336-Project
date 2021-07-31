@@ -22,10 +22,7 @@ import javax.inject.Named;
 public class ShowTheaterBean implements Serializable {
     @EJB
     private TheaterEJB theaterEJB;
-    
-    
     private Theater theater;
-    
     private String zipcode;
     
     public ShowTheaterBean() {
