@@ -5,6 +5,7 @@
  */
 package ejb;
 
+import entity.Theater;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Resource;
@@ -21,20 +22,13 @@ public class TheaterEJB {
 
     @PersistenceContext(unitName = "TheaterPU")
     private EntityManager em;
-    @Resource
-    private javax.transaction.UserTransaction utx;
 
     public void persist(Object object) {
-        try {
-            utx.begin();
-            em.persist(object);
-            utx.commit();
-        } catch (Exception e) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
-            throw new RuntimeException(e);
-        }
+        em.persist(object);
     }
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    public Theater getTheater(String zipcode) {
+        return em.createNamedQuery("Theater.findByZipcode", Theater.class).setParameter("zipcode", zipcode).getSingleResult();
+
+    }
 }

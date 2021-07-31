@@ -5,20 +5,32 @@
  */
 package bean;
 
+import ejb.TheaterEJB;
 import entity.Theater;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import java.io.Serializable;
+import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author alice
  */
-@ManagedBean
+
+@Named(value="showTheaterBean")
 @RequestScoped
-public class ShowTheaterBean {
+public class ShowTheaterBean implements Serializable {
+    @EJB
+    private TheaterEJB theaterEJB;
+    
+    
     private Theater theater;
     
     private String zipcode;
+    
+    public ShowTheaterBean() {
+        
+    }
 
     public String getZipcode() {
         return zipcode;
@@ -37,6 +49,19 @@ public class ShowTheaterBean {
         this.theater = theater;
     }
     public String showTheater(){
+        /*try
+        {
+            theater = theaterEJB.getTheater(zipcode);
+
+            return "theater.xhtml";
+        }
+        catch (Exception e)
+        {
+            return "No theater found.";
+        }*/
+        
+        theater = theaterEJB.getTheater(zipcode);
+
         return "theater.xhtml";
     }    
     

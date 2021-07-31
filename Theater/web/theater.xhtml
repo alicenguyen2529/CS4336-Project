@@ -1,20 +1,39 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> </meta>
         <link rel="stylesheet" href="css/style.css"> </link>
         <title>Movies</title>
     </h:head>
     <h:body>
-        <div class="navbar">
-            <div class="navbar-container">
-                <div class="logo-container"><h1 class="logo">MOVIES</h1></div>
-            </div>
-        </div>
-        <div class="sidebar">
-            
+        <div class="main">
+            <h:form>
+                <h2 style="color: beige">Theater's Information</h2>
+                <h:panelGrid class="panel" columns="2">
+                    <h:outputLabel value="Theater Name"/>
+                    <h:outputText value="#{showTheaterBean.theater.theaterid}"/>
+                    
+                    <h:outputLabel value="Address"/>
+                    <h:outputText value="#{showTheaterBean.theater.address}"/>
+                    
+                    <h:outputLabel value="City"/>
+                    <h:outputText value="#{showTheaterBean.theater.city}"/>
+                    
+                    <h:outputLabel value="State"/>
+                    <h:outputText value="#{showTheaterBean.theater.state}"/>
+                    
+                    <h:outputLabel value="Zipcode"/>
+                    <h:outputText value="#{showTheaterBean.theater.zipcode}"/>
+                </h:panelGrid>
+                <br/>
+                <h:commandButton value="Back to main page" action="index.xhtml"/>
+                <h:commandButton value="Movie List" action="#{showMovieBean.showMovie()}">
+                    <f:param name="theaterid" value="#{showTheaterBean.theater.theaterid}"/>
+                </h:commandButton>
+            </h:form>
         </div>
     </h:body>
 </html>
