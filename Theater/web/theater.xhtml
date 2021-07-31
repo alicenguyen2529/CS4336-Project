@@ -11,23 +11,9 @@
     <h:body>
         <div class="main">
             <h:form>
-                <h2 style="color: beige">Theater's Information</h2>
-                <h:panelGrid class="panel" columns="2">
-                    <h:outputLabel value="Theater Name"/>
-                    <h:outputText value="#{showTheaterBean.theater.theaterid}"/>
-                    
-                    <h:outputLabel value="Address"/>
-                    <h:outputText value="#{showTheaterBean.theater.address}"/>
-                    
-                    <h:outputLabel value="City"/>
-                    <h:outputText value="#{showTheaterBean.theater.city}"/>
-                    
-                    <h:outputLabel value="State"/>
-                    <h:outputText value="#{showTheaterBean.theater.state}"/>
-                    
-                    <h:outputLabel value="Zipcode"/>
-                    <h:outputText value="#{showTheaterBean.theater.zipcode}"/>
-                </h:panelGrid>
+                <h1>#{showTheaterBean.theater.theatername}</h1>
+                <h3>#{showTheaterBean.theater.address} #{showTheaterBean.theater.city}, #{showTheaterBean.theater.state} #{showTheaterBean.theater.zipcode}</h3>
+                
                 <br/>
                 <h:commandButton value="Back to main page" action="index.xhtml"/>
                 <h:commandButton value="Movie List" action="#{showMovieBean.showMovie()}">
