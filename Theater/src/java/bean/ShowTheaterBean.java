@@ -45,21 +45,14 @@ public class ShowTheaterBean implements Serializable {
     public void setTheater(Theater theater) {
         this.theater = theater;
     }
-    public String showTheater(){
-        /*try
-        {
+    public String showTheater() {
+        try {
             theater = theaterEJB.getTheater(zipcode);
 
             return "theater.xhtml";
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             return "No theater found.";
-        }*/
-        
-        theater = theaterEJB.getTheater(zipcode);
-
-        return "theater.xhtml";
+        }
     }    
-    
 }

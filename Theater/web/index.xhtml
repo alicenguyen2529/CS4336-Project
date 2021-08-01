@@ -1,24 +1,29 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Facelet Title</title>
-        <style>
-            .center
-            {
-                text-align:center;
-            }
-        </style>
-        
+        <title>Cinema</title>
+        <link rel="stylesheet" href="css/style.css"></link>  
+        <link rel="stylesheet" href="css/main.css"></link>   
+        <link rel="stylesheet" href="css/content.css"></link>   
+        <link rel="stylesheet" href="css/background-image.css"></link>   
+
     </h:head>
     <h:body class="center">
-        <h1> Please enter zipcode to find the Theater!</h1>
-        
-        <h:form>
-            <h:inputText value="#{showTheaterBean.zipcode}" />
-            <h:commandButton value="Submit" action="#{showTheaterBean.showTheater()}"/>
-        </h:form>
+        <div class="main_index">
+            <h1 class="main_h1">Find A Theater</h1>
+            <h:form>
+                <div class="TheatreSearchField TheatreSearchField--large padding">
+                    <div class="TheatreSearchField-form u-cf txt--large">
+                        <h:inputText pt:placeholder="Search by Zip Code" class="search_icon" value="#{showTheaterBean.zipcode}" />
+                        <div class="search-buttons">
+                            <h:commandButton value="Submit" image="resources/icon/search.png" class="icon icon_search TheatreSearch-searchBtn" style="width:40px; height:40px;" action="#{showTheaterBean.showTheater()}"/>
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+        </div>
     </h:body>
 </html>
-

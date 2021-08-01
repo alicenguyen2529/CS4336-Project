@@ -36,8 +36,14 @@ body{
     top: 0;
 }
 
+.main_index {
+    padding: 20px 20px 20px 20px;
+    margin: 200px 150px 0px 150px;
+}
+
 .main {
-    margin: 20px;
+    padding: 20px;
+    min-height: 800px;
     background-color: black;
 }
 
@@ -61,4 +67,100 @@ body{
     line-height: 1.9em;
     font-style: normal;
     font-family: gordita,Helvetica,sans-serif;
+}
+
+.movie_name {
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    line-height: 1.25em;
+    font-family: gordita,Helvetica,sans-serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+}
+.movie_duration {
+    color: #fff;
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    line-height: 1.25em;
+    font-family: gordita,Helvetica,sans-serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.checkout_theater_name {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    line-height: 1.25em;
+    font-family: gordita,Helvetica,sans-serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.Btn, .btn, .btn-default, button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    background-color: transparent;
+    border-radius: 38px;
+    border: 2px solid #fff;
+    outline: nones;
+    letter-spacing: -.04em;
+    transition: all .15s ease-in-out;
+}
+
+.display_block {
+    display: inline-block;
+}
+
+.center {
+    text-align:center;
+}
+
+.main_h1 {
+    color: #fff;
+    font-size: 70px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    line-height: 1.25em;
+    font-family: gordita,Helvetica,sans-serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.TheatreSearchField--compact .TheatreSearchField-form input {
+    width: calc(100% - 24px * 2 - 12px * 3);
+    padding-bottom: 0;
+    margin-bottom: 0;
+    float: left;
+}
+
+.TheatreSearchField-form input {
+    font-size: 25px;
+}
+
+.TheatreSearchField-form input {
+    display: inline-block;
+    border-bottom: none;
+    height: 2em;
+    width: calc(100% - 24px * 2 - 18px * 3);
+}
+
+.TheatreSearchField--large .TheatreSearchField-form {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 2px;
+}
+
+.padding {
+    padding: 0px 350px 0px 350px;
 }
