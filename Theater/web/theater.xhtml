@@ -12,6 +12,12 @@
         <title>Movies</title>
     </h:head>
     <h:body class="center">
+        <div class="navbar">
+            <div class="navbar-container">
+                <div class="logo-container"><h1 class="logo">POGCHAMP</h1></div>
+                <div class="home-button-container"><a href="index.xhtml" class="button">Home</a></div>
+            </div>
+        </div>
         <div class="main">
             <h:form>
                 <h1 class="theater_name">#{showTheaterBean.theater.theatername}</h1>
@@ -22,7 +28,7 @@
                 <h:commandButton value="Movie List" action="#{showMovieBean.showMovie()}">
                     <f:param name="theaterid" value="#{showTheaterBean.theater.theaterid}"/>
                 </h:commandButton>
-            </h:form>
+            </h:form>            
         </div>
     </h:body>
 </html>

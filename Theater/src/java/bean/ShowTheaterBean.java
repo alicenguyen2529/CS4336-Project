@@ -55,4 +55,5 @@ public class ShowTheaterBean implements Serializable {
             return "No theater found.";
         }
     }    
+    
 }
