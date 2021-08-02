@@ -9,8 +9,24 @@
         <link rel="stylesheet" href="css/style.css"> </link>
         <link rel="stylesheet" href="css/main.css"></link>   
         <link rel="stylesheet" href="css/content.css"></link>   
-        <link rel="stylesheet" href="css/background-image.css"></link> 
+        <link rel="stylesheet" href="css/splide.min.css"></link>
+        <script src="script/splide.min.js"></script>
         <title>Movies</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Splide('#secondary-slider', {
+                    fixedWidth: 350,
+                    height: 600,
+                    rewind: true,
+                    gap: 10,
+                    pagination: false,
+                    cover: true,
+                    isNavigation: true,
+                    focus: 'center',
+
+                }).mount();
+            });
+        </script>
     </h:head>
     <h:body class="center">
         <div class="navbar">
@@ -19,88 +35,42 @@
                 <div class="home-button-container"><a href="index.xhtml" class="button">Home</a></div>
             </div>
         </div>
+
         <div class="main">
             <h:form>
+
                 <h1 class="theater_name">#{showTheaterBean.theater.theatername}</h1>
                 <h3 class="theater_address">#{showTheaterBean.theater.address} #{showTheaterBean.theater.city}, #{showTheaterBean.theater.state} #{showTheaterBean.theater.zipcode}</h3>
-
 
                 <f:view>
                     <h3 style="color:white; text-align: center">Movie At This Theater</h3>
 
-
-                    <ui:repeat var="movies" value="#{showTheaterBean.movieList}" >
-                        <div class="collumn display_block margin">
-                            <div class="row">
-                                <h:graphicImage width="250px" library="posters" name="#{movies.poster}"/> 
-                            </div>
-                            <div class="row">
-                                <h:outputText value="#{movies.titile}"/>
-                            </div>
-                            <div class="row">
-                                <h:outputText value="#{movies.duration}"/>
-                            </div>
-                            <div class="row">
-                                <h:commandButton class="Btn Btn--Primary Btn--primary CheckoutFooter-Confirm" value="Buy Ticket" action="#{showMovieBean.getMovie(movies)}"></h:commandButton>
-                            </div>
+                    <div id="secondary-slider" class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <ui:repeat var="movies" value="#{showTheaterBean.movieList}" >
+                                    <li class="splide__slide">
+                                        <div class="collumn display_block margin">
+                                            <div class="row">
+                                                <h:graphicImage width="250px" library="posters" name="#{movies.poster}"/> 
+                                            </div>
+                                            <div class="row">
+                                                <h:outputText value="#{movies.titile}"/>
+                                            </div>
+                                            <div class="row">
+                                                <h:outputText value="#{movies.duration}"/>
+                                            </div>
+                                            <div class="row">
+                                                <h:commandButton class="Btn Btn--Primary Btn--primary CheckoutFooter-Confirm" value="Buy Ticket" action="#{showMovieBean.getMovie(movies)}"></h:commandButton>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ui:repeat>
+                            </ul>
                         </div>
-                    </ui:repeat>
-
+                    </div>
                 </f:view>
             </h:form>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <div class="container">
-                <div class="content-container">
-                    <div class="movie-list-container">
-                        <h1 class="theater_name">Movies at this theater</h1>
-                        <div class="movie-list-wrapper">
-                            <div class="movie-list">
-                                <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">lodsadsaadsa</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
-                                <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">lodsadsafsafasfasfasfasfasadsa</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
-                                <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">lodsadfsafsafasfasfasfassaadsa</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
-                                <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">lodsadsaadsa</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
-                                <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">lodsadsaadsa</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
-                                <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">loddsadsadsadasdasdasdasdasdasdasdsasadsaadsa</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
-                            </div>
-                            <i class="arrow"></i>
-                        </div>
-                    </div>            
-                </div>
-            </div>
         </div>
     </h:body>
 </html>
