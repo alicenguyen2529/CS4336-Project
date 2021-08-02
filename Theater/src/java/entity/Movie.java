@@ -35,7 +35,8 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Movie.findByPoster", query = "SELECT m FROM Movie m WHERE m.poster = :poster"),
     @NamedQuery(name = "Movie.findByTime1", query = "SELECT m FROM Movie m WHERE m.time1 = :time1"),
     @NamedQuery(name = "Movie.findByTime2", query = "SELECT m FROM Movie m WHERE m.time2 = :time2"),
-    @NamedQuery(name = "Movie.findByTime3", query = "SELECT m FROM Movie m WHERE m.time3 = :time3")})
+    @NamedQuery(name = "Movie.findByTime3", query = "SELECT m FROM Movie m WHERE m.time3 = :time3"),
+    @NamedQuery(name = "Movie.findMovie", query ="SELECT m FROM Movie m, Theatermovie t WHERE m.movieid = t.theatermoviePK.movieid and t.theatermoviePK.theaterid =:theaterid")})
 public class Movie implements Serializable {
 
     private static final long serialVersionUID = 1L;
