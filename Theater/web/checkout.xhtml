@@ -1,258 +1,179 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
+        <title>Checkout</title>
         <link rel="stylesheet" href="css/style.css"></link>
         <link rel="stylesheet" href="css/main.css"></link>   
         <link rel="stylesheet" href="css/content.css"></link>   
-        <link rel="stylesheet" href="css/background-image.css"></link> 
-        <title>Checkout</title>
     </h:head>
-
     <h:body>
-        <div class="main_background display_block my_row">
-            <div class="main my_column">
-                <h1 class="movie_name">A Quiet Place Part II</h1>
-                <h5 class="movie_duration">1 HR 37 MIN</h5>
-                <h3 class="checkout_theater_name">AMC Firewheel 18</h3>
-                <div class="display_block">
-                    <div class="display_block"><a aria-disabled="false" class="Btn Btn--default" id="" href="">7:15am</a></div>
-                    <div class="display_block"><a aria-disabled="false" class="Btn Btn--default" id="" href="">18:15pm</a></div>
-                    <div class="display_block"><a aria-disabled="false" class="Btn Btn--default" id="" href="">21:15pm</a></div>
-                </div>  
-                <br></br>
-                <section class="ticket-selection">
-                    <div></div>
-
-                    <div class="spinner spinner--large">
-                        <button aria-label="Decrement ticket Adult" class="spinner__button" disabled="" id="subtract-adult" type="button">
-                            <i class="spinner__icon spinner__icon--large spinner__icon--standard icon_delete" style="background-image: none;">
-                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_delete" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
-                                    <path d="M13.022 21.516a.928.928 0 1 0 0 1.828h18.815a.928.928 0 0 0 0-1.828z"></path>
-                                    <path d="M22.5 0A22.5 22.5 0 1 0 45 22.5 22.5 22.5 0 0 0 22.5 0zm0 43.116A20.672 20.672 0 1 1 43.087 22.5 20.672 20.672 0 0 1 22.5 43.116z"></path>
-                                </svg>
-                            </i>
-                        </button>
-                        <div class="ticket-selection__value">
-                            <h2 class="ticket-selection__title"> Adult</h2>
-                            <div class="ticket-selection__price" aria-hidden="true">$17.19</div>
-                            <div class="u-screenreader-only">$17.19 USD</div>
-                        </div>
-                        <button aria-label="Increment ticket Adult" class="spinner__button" id="add-adult" type="button">
-                            <i class="spinner__icon spinner__icon--large spinner__icon--standard icon_add" style="background-image: none;">
-                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_add" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
-                                    <path d="M23.428 21.572v-8.438a.928.928 0 0 0-1.828 0v8.438h-8.438a.928.928 0 1 0 0 1.828H21.6v8.438a.928.928 0 0 0 1.828 0V23.4h8.438a.928.928 0 0 0 0-1.828z"></path>
-                                    <path d="M22.5 0A22.5 22.5 0 1 0 45 22.5 22.5 22.5 0 0 0 22.5 0zm0 43.172A20.672 20.672 0 1 1 43.172 22.5 20.672 20.672 0 0 1 22.5 43.172z"></path>
-                                </svg>
-                            </i>
-                        </button>
-                    </div>
-                    <div class="spinner spinner--large">
-                        <button aria-label="Decrement ticket Child" class="spinner__button" disabled="" id="subtract-child" type="button">
-                            <i class="spinner__icon spinner__icon--large spinner__icon--standard icon_delete" style="background-image: none;">
-                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_delete" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
-                                    <path d="M13.022 21.516a.928.928 0 1 0 0 1.828h18.815a.928.928 0 0 0 0-1.828z"></path>
-                                    <path d="M22.5 0A22.5 22.5 0 1 0 45 22.5 22.5 22.5 0 0 0 22.5 0zm0 43.116A20.672 20.672 0 1 1 43.087 22.5 20.672 20.672 0 0 1 22.5 43.116z"></path>
-                                </svg>
-                            </i>
-                        </button>
-                        <div class="ticket-selection__value">
-                            <h2 class="ticket-selection__title"> Child</h2>
-                            <div class="ticket-selection__description">Age 2-12</div>
-                            <div class="ticket-selection__price" aria-hidden="true">$14.19</div>
-                            <div class="u-screenreader-only">$14.19 USD</div>
-                        </div>
-                        <button aria-label="Increment ticket Child" class="spinner__button" id="add-child" type="button">
-                            <i class="spinner__icon spinner__icon--large spinner__icon--standard icon_add" style="background-image: none;">
-                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_add" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
-                                    <path d="M23.428 21.572v-8.438a.928.928 0 0 0-1.828 0v8.438h-8.438a.928.928 0 1 0 0 1.828H21.6v8.438a.928.928 0 0 0 1.828 0V23.4h8.438a.928.928 0 0 0 0-1.828z"></path>
-                                    <path d="M22.5 0A22.5 22.5 0 1 0 45 22.5 22.5 22.5 0 0 0 22.5 0zm0 43.172A20.672 20.672 0 1 1 43.172 22.5 20.672 20.672 0 0 1 22.5 43.172z"></path>
-                                </svg>
-                            </i>
-                        </button>
-                    </div>
-                    <div class="spinner spinner--large">
-                        <button aria-label="Decrement ticket Senior" class="spinner__button" disabled="" id="subtract-senior" type="button">
-                            <i class="spinner__icon spinner__icon--large spinner__icon--standard icon_delete" style="background-image: none;">
-                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_delete" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
-                                    <path d="M13.022 21.516a.928.928 0 1 0 0 1.828h18.815a.928.928 0 0 0 0-1.828z"></path>
-                                    <path d="M22.5 0A22.5 22.5 0 1 0 45 22.5 22.5 22.5 0 0 0 22.5 0zm0 43.116A20.672 20.672 0 1 1 43.087 22.5 20.672 20.672 0 0 1 22.5 43.116z"></path>
-                                </svg>
-                            </i>
-                        </button>
-                        <div class="ticket-selection__value">
-                            <h2 class="ticket-selection__title"> Senior</h2>
-                            <div class="ticket-selection__description">Age 60+</div>
-                            <div class="ticket-selection__price" aria-hidden="true">$15.69</div>
-                            <div class="u-screenreader-only">$15.69 USD</div>
-                        </div>
-                        <button aria-label="Increment ticket Senior" class="spinner__button" id="add-senior" type="button">
-                            <i class="spinner__icon spinner__icon--large spinner__icon--standard icon_add" style="background-image: none;">
-                                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_add" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
-                                    <path d="M23.428 21.572v-8.438a.928.928 0 0 0-1.828 0v8.438h-8.438a.928.928 0 1 0 0 1.828H21.6v8.438a.928.928 0 0 0 1.828 0V23.4h8.438a.928.928 0 0 0 0-1.828z"></path>
-                                    <path d="M22.5 0A22.5 22.5 0 1 0 45 22.5 22.5 22.5 0 0 0 22.5 0zm0 43.172A20.672 20.672 0 1 1 43.172 22.5 20.672 20.672 0 0 1 22.5 43.172z"></path>
-                                </svg>
-                            </i>
-                        </button>
-                    </div>
-                    <p class="ticket-selection__paragraph">For orders of more than 30 tickets, please contact&nbsp;<a class="Link--reversed ticket-selection__paragraph__link" href="/group-sales">Group Sales</a>.</p>
-                </section>  
-
+        <div class="navbar">
+            <div class="navbar-container">
+                <div class="logo-container"><h1 class="logo">POGCHAMP</h1></div>
+                <div class="home-button-container"><a href="index.xhtml" class="button">Home</a></div>
             </div>
-            <div class="main my_column">
-                <h3>Order Detail</h3>
-                <div class="order-details">
-                    <div class="order-details__headline">
-                        <div class="order-details__title order-details--muted">Tickets</div>
-                        <div><button class="order-details__link Link Btn--noStyle" type="button">Edit</button></div>
-                    </div>
-                    <ul class="order-details__list">
-                        <li class="order-details__list-item">
-                            <div>
-                                <div class="order-details__primary-charge">
-                                    <div class="order-details__label">Adult Ticket</div>
-                                    <div>$9.49</div>
-                                </div>
-                                <br></br>
-                                <div>
-                                    <div class="order-details order-details--muted">
-                                        <ul class="order-details__list">
-                                            <li class="order-details__list-item">
-                                                <div class="order-details__primary-charge">
-                                                    <div class="order-details__label">Taxes</div>
-                                                    <div>$0.94</div>
-
-                                                </div>
-                                            </li>
-                                        </ul>
-
-                                    </div>
-
-                                </div>
-                                <br></br>
-                                
-                                <div class="order-details__primary-charge">
-                                    <div class="order-details__label">Total</div>
-                                    <div>$9.49</div>
-                                </div>
-
-                            </div>
-                        </li>
-
-                    </ul>
-
-
-                    <div class="order-details__separator"></div>
-                </div>
-                <h3>Payment Info</h3>
-                <span>
-                    <div class="CreditCards Cards-Section form-full-width-fields">
-                        <section class="Card--List Card--List--Form">
-                            <header class="Headline--eyebrow txt--gray--light">Credit/Debit Card</header>
-                            <div class="row">
-                                <div class="row col-xs-12">
-                                    <div class="col-xs-12"><img alt="accepted card types: visa, mastercard, discover and american express" src="https://amc-theatres-res.cloudinary.com/image/upload/v1556564205/amc-cdn/static/images/forms/accepted_cards.png" class="new-credit-card__accepted-cards"/></div>
-                                </div>
-                                <div class="col-xs-12">
-                                    <div class="forms__input-container"><input name="cardNumber" id="new-credit-card-number" class="card-input--card-placeholder" placeholder="Card Number" type="text" value=""/></div>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <div>
-                                        <div class=" Options--select Styled-SelectBar Styled-Select-Wrapper">
-                                            <div class="Styled-Select">
-                                                <div class="Styled-Select-Title Headline--h2 txt--medium txt--tiny is-default" aria-hidden="true"><span class="">Exp. Month</span></div>
-                                                <i class="icon_arrow-down Styled-Select-Dropdown-Icon" aria-label="Click to expand this List" style="background-image: none;">
-                                                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_arrow-down" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
-                                                        <path d="M22.464 29.594L3.067 10.48c-.856-.57-2.283-.285-2.853.856-.285.57-.285 1.141 0 1.997l20.824 20.824c.856.856 1.997.856 2.853 0L44.715 13.62c.57-.856.285-2.282-.856-2.852-.57-.286-1.426-.286-1.997 0z"></path>
-                                                    </svg>
-                                                </i>
-                                                <select aria-label="Click to expand this List" class="Styled-Select-Dropdown" id="new-credit-card-expiration-month">
-                                                    <option disabled="" value="">Exp. Month</option>
-                                                    <option value="01">01</option>
-                                                    <option value="02">02</option>
-                                                    <option value="03">03</option>
-                                                    <option value="04">04</option>
-                                                    <option value="05">05</option>
-                                                    <option value="06">06</option>
-                                                    <option value="07">07</option>
-                                                    <option value="08">08</option>
-                                                    <option value="09">09</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <div>
-                                        <div class=" Options--select Styled-SelectBar Styled-Select-Wrapper">
-                                            <div class="Styled-Select">
-                                                <div class="Styled-Select-Title Headline--h2 txt--medium txt--tiny is-default" aria-hidden="true"><span class="">Exp. Year</span></div>
-                                                <i class="icon_arrow-down Styled-Select-Dropdown-Icon" aria-label="Click to expand this List" style="background-image: none;">
-                                                    <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="icon_arrow-down" viewBox="0 0 45 45" preserveAspectRatio="xMidYMid meet" fill="#ffffff" width="100%" height="100%">
-                                                        <path d="M22.464 29.594L3.067 10.48c-.856-.57-2.283-.285-2.853.856-.285.57-.285 1.141 0 1.997l20.824 20.824c.856.856 1.997.856 2.853 0L44.715 13.62c.57-.856.285-2.282-.856-2.852-.57-.286-1.426-.286-1.997 0z"></path>
-                                                    </svg>
-                                                </i>
-                                                <select aria-label="Click to expand this List" class="Styled-Select-Dropdown" id="new-credit-card-expiration-year">
-                                                    <option disabled="" value="">Exp. Year</option>
-                                                    <option value="2021">2021</option>
-                                                    <option value="2022">2022</option>
-                                                    <option value="2023">2023</option>
-                                                    <option value="2024">2024</option>
-                                                    <option value="2025">2025</option>
-                                                    <option value="2026">2026</option>
-                                                    <option value="2027">2027</option>
-                                                    <option value="2028">2028</option>
-                                                    <option value="2029">2029</option>
-                                                    <option value="2030">2030</option>
-                                                    <option value="2031">2031</option>
-                                                    <option value="2032">2032</option>
-                                                    <option value="2033">2033</option>
-                                                    <option value="2034">2034</option>
-                                                    <option value="2035">2035</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <div class="forms__input-container"><input name="cvv" id="new-credit-card-cvv" placeholder="CVV" type="number" value=""/></div>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <div class="forms__input-container"><input name="postalCode" id="payment-billing-postal-code" placeholder="Zip" type="number" value=""/></div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </span>
-
-
-                <div class="CheckoutFooter-content">
-                    <div class="CheckoutFooter-selection">
-                        <div class="u-show-mobile" aria-label="Open Order Total $15.89 USD">
-                            <div class="checkout--shopping-bag">
-                                <i class="icon_cart" style="background-image: none;">
-                                    <svg focusable="false" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.16 14.31">
-                                        <defs>
-                                            <style>.cls-1{fill:#fff;}</style>
-                                        </defs>
-                                        <title>AMC_Icons_cart_Edit_White</title>
-                                        <path class="cls-1" d="M4.49,10.21h8a.27.27,0,0,0,.27-.21L14.2,2.63h0A.26.26,0,0,0,14,2.38H3.23L2.71.21A.28.28,0,0,0,2.44,0H.27A.28.28,0,0,0,.05.33.28.28,0,0,0,.27.55h2L4.2,9.69A1.3,1.3,0,0,0,3.2,11a1.17,1.17,0,0,0,.37.93l.15.08a1.3,1.3,0,0,0-.56,1.05,1.34,1.34,0,0,0,2.67,0,1.4,1.4,0,0,0-.29-.81H11.3a1.27,1.27,0,0,0-.3.81,1.34,1.34,0,0,0,2.67,0,1.32,1.32,0,0,0-1.15-1.3.06.06,0,0,0-.06-.06H4.63a1,1,0,0,1-.7-.18A.64.64,0,0,1,3.74,11,.82.82,0,0,1,4.49,10.21Zm9.09-7.33L12.24,9.66H4.7L3.36,2.84Zm-9.09,11a.79.79,0,1,1,.78-.8v0a.78.78,0,0,1-.78.77Zm8.61-.79a.79.79,0,1,1-.79-.79h0a.78.78,0,0,1,.78.78Z" transform="translate(-0.04)"></path>
-                                    </svg>
-                                </i>
-                                <span class="txt--tiny">1</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button id="confirm-purchase" type="submit" aria-label="Purchase. Please be aware that after selecting this button refreshing or closing this page could cause your order to duplicate" class="Btn Btn--Primary Btn--primary CheckoutFooter-Confirm">Purchase</button>
-                </div>
-            </div>
-
         </div>
+        <div class="main_background display_block my_row">
+            <h:form>
+                <div class="main my_column">
+                    <div class="center2">
+                        <h:graphicImage width="200px" library="posters" name="#{paymentBean.movie.poster}"/>
+                    </div>
+                    <div class="center2">
+                        <h1 class="movie_name">#{paymentBean.movie.titile}</h1>
+                    </div>
+                    <div class="center2">
+                        <h5 class="movie_duration">#{paymentBean.movie.duration}</h5>
+                    </div>
+                    <div class="center2">
+                        <h:selectOneRadio value="#{paymentBean.showtime}" styleClass="toggle-radio-buttons">
+                            <f:selectItem itemValue="#{paymentBean.movie.time1}" itemLabel="#{paymentBean.movie.time1}" />
+                            <f:selectItem itemValue="#{paymentBean.movie.time2}" itemLabel="#{paymentBean.movie.time2}" />
+                            <f:selectItem itemValue="#{paymentBean.movie.time3}" itemLabel="#{paymentBean.movie.time3}" />
+                        </h:selectOneRadio>
+                    </div>  
+                    <br></br>
+                    <section class="ticket-selection">
+                        <div></div>
 
+                        <div class="spinner spinner--large">
+
+                            <h:commandButton value="Submit" image="resources/icon/minus_white.png" class="minus" action="#{paymentBean.subtractTicketAdult()}"/>
+                            <div class="ticket-selection__value">
+                                <h2 class="ticket-selection__title">#{paymentBean.adultTicket} Adult</h2>
+                                <div class="ticket-selection__price" aria-hidden="true">$#{paymentBean.adultPrice}</div>
+                            </div>
+                            <h:commandButton value="Submit" image="resources/icon/plus_white.png" class="plus" action="#{paymentBean.addTicketAdult()}"/>
+                        </div>
+                        <div class="spinner spinner--large">
+                            <h:commandButton value="Submit" image="resources/icon/minus_white.png" class="minus" action="#{paymentBean.subtractTicketChild()}"/>
+                            <div class="ticket-selection__value">
+                                <h2 class="ticket-selection__title">#{paymentBean.childrenTicket} Child</h2>
+                                <div class="ticket-selection__price" aria-hidden="true">$#{paymentBean.childrenPrice}</div>
+                            </div>
+                            <h:commandButton value="Submit" image="resources/icon/plus_white.png" class="plus" action="#{paymentBean.addTicketChild()}"/>
+                        </div>
+                        <div class="spinner spinner--large">
+                            <h:commandButton value="Submit" image="resources/icon/minus_white.png" class="minus" action="#{paymentBean.subtractTicketSenior()}"/>
+                            <div class="ticket-selection__value">
+                                <h2 class="ticket-selection__title">#{paymentBean.seniorTicket} Senior</h2>
+                                <div class="ticket-selection__price" aria-hidden="true">$#{paymentBean.seniorPrice}</div>
+                            </div>
+                            <h:commandButton value="Submit" image="resources/icon/plus_white.png" class="plus" action="#{paymentBean.addTicketSenior()}"/>
+                        </div>
+                    </section>  
+                </div>
+            </h:form>
+
+            <div class="main my_column">
+                <h:form>
+                    <h3>Order Detail</h3>
+                    <div class="order-details">
+                        <div class="order-details__headline">
+                            <div class="order-details__title order-details--muted">Tickets</div>
+                        </div>
+                        <ul class="order-details__list">
+                            <li class="order-details__list-item">
+                                <div>
+                                    <div class="order-details__primary-charge">
+                                        <div class="order-details__label">Adult Ticket</div>
+                                        <div>$#{paymentBean.adultPrice}</div>
+                                    </div>
+                                    <div class="order-details__primary-charge">
+                                        <div class="order-details__label">Child Ticket</div>
+                                        <div>$#{paymentBean.childrenPrice}</div>
+                                    </div>
+                                    <div class="order-details__primary-charge">
+                                        <div class="order-details__label">Senior Ticket</div>
+                                        <div>$#{paymentBean.seniorPrice}</div>
+                                    </div>
+                                    <br></br>
+                                    <div>
+                                        <div class="order-details order-details--muted">
+                                            <ul class="order-details__list">
+                                                <li class="order-details__list-item">
+                                                    <div class="order-details__primary-charge">
+                                                        <div class="order-details__label">Taxes</div>
+                                                        <div>$#{paymentBean.tax}</div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <br></br>
+
+                                    <div class="order-details__primary-charge">
+                                        <div class="order-details__label">Total</div>
+                                        <div>$#{paymentBean.total}</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="order-details__separator"></div>
+                    </div>
+                    <h3>Payment Info</h3>
+                    <span>
+                        <div class="CreditCards Cards-Section form-full-width-fields">
+                            <section class="Card--List Card--List--Form">
+                                <header class="Headline--eyebrow txt--gray--light">Credit/Debit Card</header>
+                                <div class="row">
+                                    <div class="row col-xs-12">
+                                        <div class="col-xs-12"><img alt="accepted card types: visa, mastercard, discover and american express" src="https://amc-theatres-res.cloudinary.com/image/upload/v1556564205/amc-cdn/static/images/forms/accepted_cards.png" class="new-credit-card__accepted-cards"/></div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="forms__input-container">
+                                            <h:inputText id="creditcard" required="true" class="card-input--card-placeholder" pt:placeholder="Card Number" label="Credit Card Number" value="#{paymentBean.creditcard}">
+                                                <f:validateLength minimum="16" maximum="16" />
+                                            </h:inputText>
+                                            <h:message class="message" for="creditcard" style="color:red"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="forms__input-container">
+                                            <h:inputText id="expMonth" label="Expiration Month" required="true" pt:placeholder="Exp. Month" class="search_icon" value="#{paymentBean.expirationMonth}"/>
+                                            <h:message class="message" for="expMonth" style="color:red"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="forms__input-container">
+                                            <h:inputText id="expYear" label="Expiration Year" required="true" pt:placeholder="Exp. Year" class="search_icon" value="#{paymentBean.expirationYear}" />
+                                            <h:message class="message" for="expYear" style="color:red"/>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="forms__input-container">
+                                            <h:inputText id="cvv" label="CVV" required="true" pt:placeholder="CVV" class="search_icon" value="#{paymentBean.CVV}" />
+                                            <h:message class="message" for="cvv" style="color:red"/>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-6 col-md-3">
+                                        <div class="forms__input-container">
+                                            <h:inputText id="zipCode" label="Zip Code" required="true" pt:placeholder="Zip Code" class="search_icon" value="#{paymentBean.zipCode}" />
+                                            <h:message class="message" for="zipCode" style="color:red"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+                        </div>
+                    </span>
+
+                    <div class="CheckoutFooter-content">
+                        <h:commandButton class="Btn Btn--Primary Btn--primary CheckoutFooter-Confirm" value="Purchase" action="#{paymentBean.purchase()}"></h:commandButton>
+                    </div>
+                </h:form>
+            </div>
+        </div> 
     </h:body>
 </html>
 

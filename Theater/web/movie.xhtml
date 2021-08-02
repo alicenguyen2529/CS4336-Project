@@ -1,20 +1,66 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> </meta>
         <link rel="stylesheet" href="css/style.css"> </link>
-        <title>Movies</title>
+        <link rel="stylesheet" href="css/main.css"></link>   
+        <link rel="stylesheet" href="css/content.css"></link>
+        <title>Movie</title>
     </h:head>
-    <h:body>
+    <h:body class="center">
         <div class="navbar">
             <div class="navbar-container">
-                <div class="logo-container"><h1 class="logo">MOVIES</h1></div>
+                <div class="logo-container"><h1 class="logo">POGCHAMP</h1></div>
+                <div class="home-button-container"><a href="index.xhtml" class="button">Home</a></div>
             </div>
         </div>
-        <div class="sidebar">
-            
+        <div class="main">
+            <h:form>
+                <div class="center2">
+                    <h:graphicImage width="300px" library="posters" name="#{showMovieBean.movie.poster}"/>
+                </div>
+                <br/>
+                <div class="center2">
+                    <h2 class="movie_name">#{showMovieBean.movie.titile} (#{showMovieBean.movie.yearmake})</h2>
+                </div>
+
+                <div class="center2">
+                    <h3 class="movie_description">#{showMovieBean.movie.duration}</h3>
+                </div>
+                
+                <br/>
+                <div class="center2">
+                    <h2>Genre</h2>
+                </div>
+                <div class="center2">
+                    <h2 class="movie_description">#{showMovieBean.movie.genre}</h2>
+                </div>
+                <br/>
+                <div class="center2">
+                    <h2>Description</h2>
+                </div>
+                <div class="center2">
+                    <h3 class="movie_description">#{showMovieBean.movie.description}</h3>
+                </div>
+                <br/>
+                <div class="center2">
+                    <h2>Cast and Crew</h2>
+                </div>
+                <div class="center2">
+                    <h3 class="movie_description">Director(s): #{showMovieBean.movie.director}</h3>
+                </div>
+                <div class="center2">
+                    <h4 class="movie_description">Cast Member(s): #{showMovieBean.movie.casts}</h4>
+                </div>
+                <br/>
+                <br/>
+                <h:commandButton class="Btn Btn--Primary Btn--primary CheckoutFooter-Confirm" value="Get Tickets" action="#{paymentBean.getTicket()}">
+                    <f:param name="movieId" value="#{showMovieBean.movie.movieid}"/>
+                </h:commandButton>
+            </h:form>
         </div>
     </h:body>
 </html>

@@ -9,55 +9,69 @@
         <link rel="stylesheet" href="css/style.css"> </link>
         <link rel="stylesheet" href="css/main.css"></link>   
         <link rel="stylesheet" href="css/content.css"></link>   
-        <link rel="stylesheet" href="css/background-image.css"></link> 
-        <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"></link>
+        <link rel="stylesheet" href="css/splide.min.css"></link>
+        <script src="script/splide.min.js"></script>
         <title>Movies</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                new Splide('#secondary-slider', {
+                    fixedWidth: 350,
+                    height: 600,
+                    rewind: true,
+                    gap: 10,
+                    pagination: false,
+                    cover: true,
+                    isNavigation: true,
+                    focus: 'center',
+
+                }).mount();
+            });
+        </script>
     </h:head>
     <h:body class="center">
         <div class="navbar">
             <div class="navbar-container">
-                <div class="logo-container"><h1 class="logo">MOVIES</h1></div>
+                <div class="logo-container"><h1 class="logo">POGCHAMP</h1></div>
                 <div class="home-button-container"><a href="index.xhtml" class="button">Home</a></div>
             </div>
         </div>
+
         <div class="main">
             <h:form>
+
                 <h1 class="theater_name">#{showTheaterBean.theater.theatername}</h1>
                 <h3 class="theater_address">#{showTheaterBean.theater.address} #{showTheaterBean.theater.city}, #{showTheaterBean.theater.state} #{showTheaterBean.theater.zipcode}</h3>
-                
-                <br/>
-                <h:commandButton value="Movie List" action="#{showMovieBean.showMovie()}">
-                    <f:param name="theaterid" value="#{showTheaterBean.theater.theaterid}"/>
-                </h:commandButton>
-            </h:form>
-            <div class="container">
-                <div class="content-container">
-                    <div class="movie-list-container">
-                        <h1 class="movie-list-title">NEW RELEASES</h1>
-                        <div class="row">
-                            <div class="column1">
-                        <div class="movie-list-wrapper">
-                            <div class="movie-list">
-                                <ui:repeat value="#{showMovieBean.movieList}" var="movies" >
-                                <div class="movie-list-items">
-                                    <h:graphicImage class="movie-list-item-img" library="posters" name="#{movies.poster}"/>
-                                    <span class="movie-list-item-title">#{movies.titile}</span>
-                                    <p class="movie-list-item-desc">#{movies.description}</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
+
+                <f:view>
+                    <h3 style="color:white; text-align: center">Movie At This Theater</h3>
+
+                    <div id="secondary-slider" class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <ui:repeat var="movies" value="#{showTheaterBean.movieList}" >
+                                    <li class="splide__slide">
+                                        <div class="collumn display_block margin">
+                                            <div class="row">
+                                                <h:graphicImage width="250px" library="posters" name="#{movies.poster}"/> 
+                                            </div>
+                                            <div class="row">
+                                                <h:outputText value="#{movies.titile}"/>
+                                            </div>
+                                            <div class="row">
+                                                <h:outputText value="#{movies.duration}"/>
+                                            </div>
+                                            <div class="row">
+                                                <h:commandButton class="Btn Btn--Primary Btn--primary CheckoutFooter-Confirm" value="Buy Ticket" action="#{showMovieBean.getMovie(movies)}"></h:commandButton>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ui:repeat>
-                            </div>
+                            </ul>
                         </div>
-                            </div>
-                            <div class="column2" >
-                            <i class="fas fa-chevron-right arrow"></i>
-                        </div>
-                            </div>
-                        </div>
-                    </div>            
-                </div>  
+                    </div>
+                </f:view>
+            </h:form>
         </div>
-        <h:outputScript library="js" name="jscript.js"/>
     </h:body>
 </html>
 

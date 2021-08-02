@@ -8,12 +8,12 @@ package bean;
 import ejb.TheaterEJB;
 import entity.Movie;
 import entity.Theater;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 
 /**
@@ -24,12 +24,19 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class ShowMovieBean implements Serializable {
 
-     @EJB
+    @EJB
     private TheaterEJB theaterEJB;
     private Theater theater;
     private Movie movie;
 
-    //getter and setter
+    public TheaterEJB getTheaterEJB() {
+        return theaterEJB;
+    }
+
+    public void setTheaterEJB(TheaterEJB theaterEJB) {
+        this.theaterEJB = theaterEJB;
+    }
+
     public Theater getTheater() {
         return theater;
     }
@@ -45,43 +52,26 @@ public class ShowMovieBean implements Serializable {
     public void setMovie(Movie movie) {
         this.movie = movie;
     }
-    
-    
 
-    //show movie by theaterID. TheaterID is a parameter that get passed from html page.
-    public String showMovie()
-    {
-        try{
+    public ShowMovieBean() {
+
+    }
+
+    public String showMovie() {
+        try {
             FacesContext fc = FacesContext.getCurrentInstance();
-            Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
-            int theaterid = Integer.parseInt(params.get("theaterid"));
-            theater = theaterEJB.getTheaterByID(theaterid);
+            Map<String, String> params = fc.getExternalContext().getRequestParameterMap();
+            int movieId = Integer.parseInt(params.get("movieid"));
+            movie = theaterEJB.getMovieById(movieId);
             return "movie.xhtml";
-        }
-        
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             return "Error";
         }
-                
     }
     
-    //get list of movie
-    public List<Movie> getMovieList()
-    {
-        if(theater != null)
-        {
-            return theaterEJB.getMovie(theater.getTheaterid());
-        }
-        else 
-            return null;
+    public String getMovie(Movie movie) {
+        this.movie = movie;
+        return "movie.xhtml";
     }
-    /**
-     * Creates a new instance of ShowMovieBean
-     */
-    public ShowMovieBean() {
-        
-        
-    }
-    
+
 }
