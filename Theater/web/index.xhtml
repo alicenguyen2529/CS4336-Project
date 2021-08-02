@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Cinema</title>
         <link rel="stylesheet" href="css/style.css"></link>  
@@ -18,12 +19,20 @@
             <h:form>
                 <div class="TheatreSearchField TheatreSearchField--large padding">
                     <div class="TheatreSearchField-form u-cf txt--large">
-                        <h:inputText pt:placeholder="Search by Zip Code" class="search_icon" value="#{showTheaterBean.zipcode}" />
+                        <h:inputText id="zip" label="Zip Code" pt:placeholder="Search by Zip Code" class="search_icon" value="#{showTheaterBean.zipcode}" >
+                            <f:validateLength minimum="5" maximum="5"/>
+                        </h:inputText>
+                        
                         <div class="search-buttons">
                             <h:commandButton value="Submit" image="resources/icon/search.png" class="icon icon_search TheatreSearch-searchBtn" style="width:40px; height:40px;" action="#{showTheaterBean.showTheater()}"/>
                         </div>
                     </div>
                 </div>
+                <br/>
+                <h:message class="message" for="zip" style="color:red"/>
+                <br/>
+                <h:commandButton value="Go to checkout" action="checkout.xhtml"/>
+
             </h:form>
         </div>
     </h:body>

@@ -6,6 +6,7 @@
 package bean;
 
 import ejb.TheaterEJB;
+import entity.Movie;
 import entity.Theater;
 import java.io.Serializable;
 import javax.ejb.EJB;
@@ -45,6 +46,7 @@ public class ShowTheaterBean implements Serializable {
     public void setTheater(Theater theater) {
         this.theater = theater;
     }
+    
     public String showTheater() {
         try {
             theater = theaterEJB.getTheater(zipcode);
@@ -55,5 +57,10 @@ public class ShowTheaterBean implements Serializable {
             return "No theater found.";
         }
     }    
+    
+    public String goToCheckout(){
+        
+        return "checkout.xhtml";
+    }
     
 }
