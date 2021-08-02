@@ -2,19 +2,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> </meta>
         <link rel="stylesheet" href="css/style.css"> </link>
         <link rel="stylesheet" href="css/main.css"></link>   
         <link rel="stylesheet" href="css/content.css"></link>   
         <link rel="stylesheet" href="css/background-image.css"></link> 
+        <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"></link>
         <title>Movies</title>
     </h:head>
     <h:body class="center">
         <div class="navbar">
             <div class="navbar-container">
-                <div class="logo-container"><h1 class="logo">POGCHAMP</h1></div>
+                <div class="logo-container"><h1 class="logo">MOVIES</h1></div>
                 <div class="home-button-container"><a href="index.xhtml" class="button">Home</a></div>
             </div>
         </div>
@@ -24,7 +26,6 @@
                 <h3 class="theater_address">#{showTheaterBean.theater.address} #{showTheaterBean.theater.city}, #{showTheaterBean.theater.state} #{showTheaterBean.theater.zipcode}</h3>
                 
                 <br/>
-                <h:commandButton value="Back to main page" action="index.xhtml"/>
                 <h:commandButton value="Movie List" action="#{showMovieBean.showMovie()}">
                     <f:param name="theaterid" value="#{showTheaterBean.theater.theaterid}"/>
                 </h:commandButton>
@@ -32,52 +33,31 @@
             <div class="container">
                 <div class="content-container">
                     <div class="movie-list-container">
-                        <h1 class="movie-list-title">NEW REALEASES</h1>
+                        <h1 class="movie-list-title">NEW RELEASES</h1>
+                        <div class="row">
+                            <div class="column1">
                         <div class="movie-list-wrapper">
                             <div class="movie-list">
+                                <ui:repeat value="#{showMovieBean.movieList}" var="movies" >
                                 <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">lodsadsaadsa</p>
+                                    <h:graphicImage class="movie-list-item-img" library="posters" name="#{movies.poster}"/>
+                                    <span class="movie-list-item-title">#{movies.titile}</span>
+                                    <p class="movie-list-item-desc">#{movies.description}</p>
                                     <button class="movie-list-item-button">WATCH</button>
                                 </div>
-                                <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">lodsadsafsafasfasfasfasfasadsa</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
-                                <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">lodsadfsafsafasfasfasfassaadsa</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
-                                <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">lodsadsaadsa</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
-                                <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">lodsadsaadsa</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
-                                <div class="movie-list-items">
-                                    <img class="movie-list-item-img" src="resources/posters/aquietplace2.jpg"></img>
-                                    <span class="movie-list-item-title">Her</span>
-                                    <p class="movie-list-item-desc">loddsadsadsadasdasdasdasdasdasdasdsasadsaadsa</p>
-                                    <button class="movie-list-item-button">WATCH</button>
-                                </div>
+                                </ui:repeat>
                             </div>
-                            <i class="arrow"></i>
+                        </div>
+                            </div>
+                            <div class="column2" >
+                            <i class="fas fa-chevron-right arrow"></i>
+                        </div>
+                            </div>
                         </div>
                     </div>            
-                </div>
-            </div>
+                </div>  
         </div>
+        <h:outputScript library="js" name="jscript.js"/>
     </h:body>
 </html>
 
