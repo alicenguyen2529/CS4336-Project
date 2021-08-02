@@ -24,10 +24,12 @@
                         <div class="search-buttons">
                             <h:commandButton value="Submit" image="resources/icon/search.png" class="icon icon_search TheatreSearch-searchBtn" style="width:40px; height:40px;" action="#{showTheaterBean.showTheater()}"/>
                         </div>
+
                     </div>
-                </div>
-                <br/>
+                </div>            
                 <h:message class="message" for="zip" style="color:red"/>
+                <br/>
+                <h:outputLabel value="#{showTheaterBean.message}"></h:outputLabel>
             </h:form>
         </div>
     </h:body>

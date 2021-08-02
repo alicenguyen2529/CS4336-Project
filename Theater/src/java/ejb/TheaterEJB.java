@@ -41,4 +41,8 @@ public class TheaterEJB {
     public List<Movie> getMovie(int theaterID) {
         return em.createNamedQuery("Theater.findMovie", Movie.class).setParameter("theaterid", theaterID).getResultList();
     }
+    
+    public List<Theater> getAllTheater() {
+        return em.createNamedQuery("Theater.findAll", Theater.class).getResultList();
+    }
 }

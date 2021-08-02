@@ -9,6 +9,7 @@ import ejb.TheaterEJB;
 import entity.Movie;
 import entity.Theater;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -26,6 +27,7 @@ public class ShowTheaterBean implements Serializable {
     private TheaterEJB theaterEJB;
     private Theater theater;
     private String zipcode;
+    private String message;
 
     public ShowTheaterBean() {
 
@@ -47,13 +49,38 @@ public class ShowTheaterBean implements Serializable {
         this.theater = theater;
     }
 
-    public String showTheater() {
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public boolean suggestion() {
         try {
             theater = theaterEJB.getTheater(zipcode);
-            return "theater.xhtml";
+            return true;
+           
         } catch (Exception e) {
-            return "No theater found.";
+            List<Theater> theaterList = theaterEJB.getAllTheater();
+            
+            List<String> zipcodes = new ArrayList<>();
+            
+            for(Theater theater : theaterList) {
+                zipcodes.add(theater.getZipcode());
+            }
+            
+            message = "No theater found for Zip Code: " + zipcode + ". Here is the list of available Zip Codes: " + zipcodes.toString();
+            return false;
         }
+    }
+    
+    public String showTheater() {
+        if(suggestion()) {
+            return "theater.xhtml";
+        }
+        return null;
     }
 
     public List<Movie> getMovieList() {
