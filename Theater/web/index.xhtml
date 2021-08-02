@@ -5,7 +5,7 @@
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Cinema</title>
+        <title>Home</title>
         <link rel="stylesheet" href="css/style.css"></link>  
         <link rel="stylesheet" href="css/main.css"></link>   
         <link rel="stylesheet" href="css/content.css"></link>   
@@ -31,7 +31,9 @@
                 <br/>
                 <h:message class="message" for="zip" style="color:red"/>
                 <br/>
-                <h:commandButton value="Go to checkout" action="checkout.xhtml"/>
+                <h:commandButton class="Btn Btn--Primary Btn--primary CheckoutFooter-Confirm" value="Go to movie" action="#{showMovieBean.showMovie()}">
+                    <f:param name="movieid" value="1"/>
+                </h:commandButton>
 
             </h:form>
         </div>

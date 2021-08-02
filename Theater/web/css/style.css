@@ -92,11 +92,24 @@ body{
     font-style: normal;
     -webkit-font-smoothing: antialiased;
 }
+
 .movie_duration {
     color: #fff;
     font-size: 12px;
     margin-bottom: 10px;
     font-weight: 700;
+    letter-spacing: -.04em;
+    line-height: 1.25em;
+    font-family: gordita,Helvetica,sans-serif;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.movie_description {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 300;
     letter-spacing: -.04em;
     line-height: 1.25em;
     font-family: gordita,Helvetica,sans-serif;

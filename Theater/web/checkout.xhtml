@@ -12,13 +12,24 @@
         <link rel="stylesheet" href="css/background-image.css"></link> 
     </h:head>
     <h:body>
-
+        <div class="navbar">
+            <div class="navbar-container">
+                <div class="logo-container"><h1 class="logo">POGCHAMP</h1></div>
+                <div class="home-button-container"><a href="index.xhtml" class="button">Home</a></div>
+            </div>
+        </div>
         <div class="main_background display_block my_row">
             <h:form>
-                <h:commandButton class="Btn Btn--Primary Btn--primary CheckoutFooter-Confirm" value="Load Data" action="#{paymentBean.loadData()}"/>
                 <div class="main my_column">
-                    <h1 class="movie_name">#{paymentBean.movie.titile}</h1>
-                    <h5 class="movie_duration">#{paymentBean.movie.duration}</h5>
+                    <div class="center2">
+                        <h:graphicImage width="200px" library="posters" name="#{paymentBean.movie.poster}"/>
+                    </div>
+                    <div class="center2">
+                        <h1 class="movie_name">#{paymentBean.movie.titile}</h1>
+                    </div>
+                    <div class="center2">
+                        <h5 class="movie_duration">#{paymentBean.movie.duration}</h5>
+                    </div>
                     <div class="center2">
                         <h:selectOneRadio value="#{paymentBean.showtime}" styleClass="toggle-radio-buttons">
                             <f:selectItem itemValue="#{paymentBean.movie.time1}" itemLabel="#{paymentBean.movie.time1}" />
@@ -161,21 +172,9 @@
                     <div class="CheckoutFooter-content">
                         <h:commandButton class="Btn Btn--Primary Btn--primary CheckoutFooter-Confirm" value="Purchase" action="#{paymentBean.purchase()}"></h:commandButton>
                     </div>
-
-
                 </h:form>
-
-
-
             </div>
-
-
         </div> 
-
-
-
-
-
     </h:body>
 </html>
 

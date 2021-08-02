@@ -5,6 +5,7 @@
  */
 package ejb;
 
+import entity.Movie;
 import entity.Theater;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,5 +31,9 @@ public class TheaterEJB {
     public Theater getTheater(String zipcode) {
         return em.createNamedQuery("Theater.findByZipcode", Theater.class).setParameter("zipcode", zipcode).getSingleResult();
 
+    }
+    
+    public Movie getMovieById(int movieId) {
+        return em.createNamedQuery("Movie.findByMovieid", Movie.class).setParameter("movieid", movieId).getSingleResult();
     }
 }

@@ -8,8 +8,10 @@ package bean;
 import ejb.TheaterEJB;
 import entity.Movie;
 import java.io.Serializable;
+import java.util.Map;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -41,28 +43,6 @@ public class PaymentBean implements Serializable {
     private double total;
 
     public PaymentBean() {
-    }
-
-    public void loadData() {
-        Movie newMovie = new Movie();
-        newMovie.setTitile("A Quite Place II");
-        newMovie.setTime1("7:10 am");
-        newMovie.setTime2("4:45 pm");
-        newMovie.setTime3("8:40 pm");
-        newMovie.setDuration("1 HR 35 M");
-
-        movie = newMovie;
-
-        adultPrice = 0;
-        childrenPrice = 0;
-        seniorPrice = 0;
-
-        adultTicket = 0;
-        childrenTicket = 0;
-        seniorTicket = 0;
-        
-        tax = 0;
-        total = 0;
     }
 
     public TheaterEJB getTheaterEJB() {
@@ -208,9 +188,11 @@ public class PaymentBean implements Serializable {
     }
 
     public void subtractTicketAdult() {
-        this.adultTicket -= 1;
-        this.adultPrice -= 10;
-        calculate();
+        if (this.adultTicket > 0) {
+            this.adultTicket -= 1;
+            this.adultPrice -= 10;
+            calculate();
+        }
     }
 
     public void addTicketChild() {
@@ -220,9 +202,11 @@ public class PaymentBean implements Serializable {
     }
 
     public void subtractTicketChild() {
-        this.childrenTicket -= 1;
-        this.childrenPrice -= 5;
-        calculate();
+        if (this.childrenTicket > 0) {
+            this.childrenTicket -= 1;
+            this.childrenPrice -= 5;
+            calculate();
+        }
     }
 
     public void addTicketSenior() {
@@ -232,11 +216,13 @@ public class PaymentBean implements Serializable {
     }
 
     public void subtractTicketSenior() {
-        this.seniorTicket -= 1;
-        this.seniorPrice -= 5;
-        calculate();
+        if (this.seniorTicket > 0) {
+            this.seniorTicket -= 1;
+            this.seniorPrice -= 5;
+            calculate();
+        }
     }
-    
+
     private void calculate() {
         this.preTax = adultPrice + childrenPrice + seniorPrice;
         this.tax = (preTax * 10) / 100;
@@ -247,4 +233,11 @@ public class PaymentBean implements Serializable {
         return "thankyou.xhtml";
     }
 
+    public String getTicket() {
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Map<String, String> params = fc.getExternalContext().getRequestParameterMap();
+        int movieId = Integer.parseInt(params.get("movieId"));
+        movie = theaterEJB.getMovieById(movieId);
+        return "checkout.xhtml";
+    }
 }
