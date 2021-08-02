@@ -9,6 +9,7 @@ import ejb.TheaterEJB;
 import entity.Movie;
 import entity.Theater;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -66,6 +67,11 @@ public class ShowMovieBean implements Serializable {
         } catch (Exception e) {
             return "Error";
         }
-
     }
+    
+    public String getMovie(Movie movie) {
+        this.movie = movie;
+        return "movie.xhtml";
+    }
+
 }

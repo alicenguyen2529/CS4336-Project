@@ -29,7 +29,10 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Theater.findByAddress", query = "SELECT t FROM Theater t WHERE t.address = :address"),
     @NamedQuery(name = "Theater.findByCity", query = "SELECT t FROM Theater t WHERE t.city = :city"),
     @NamedQuery(name = "Theater.findByState", query = "SELECT t FROM Theater t WHERE t.state = :state"),
-    @NamedQuery(name = "Theater.findByZipcode", query = "SELECT t FROM Theater t WHERE t.zipcode = :zipcode")})
+    @NamedQuery(name = "Theater.findByZipcode", query = "SELECT t FROM Theater t WHERE t.zipcode = :zipcode"), 
+    @NamedQuery(name = "Theater.findMovie", query = "SELECT m FROM Movie m, Theatermovie t WHERE m.movieid = t.theatermoviePK.movieid and t.theatermoviePK.theaterid =:theaterid")
+})
+
 public class Theater implements Serializable {
 
     private static final long serialVersionUID = 1L;

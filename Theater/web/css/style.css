@@ -366,3 +366,8 @@ table.toggle-radio-buttons input[type="radio"]:checked + label{
     border-radius: 30px;
     font-family: gordita,Helvetica,sans-serif;
 }
+
+.margin {
+    margin-left: 50px;
+    margin-right: 50px;
+}
