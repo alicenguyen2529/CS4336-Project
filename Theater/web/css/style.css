@@ -55,6 +55,10 @@ body{
     background-color: black;
 }
 
+.main_background {
+    background-color: black;
+}
+
 .theater_name {
     color: #fff;
     font-size: 60px;
@@ -257,4 +261,15 @@ body{
 
 .content-container {
   margin-left: 50px;
+}
+
+.my_column{
+    flex: 50%;
+    
+}
+
+.my_row{
+   
+    display: flex;
+    
 }
