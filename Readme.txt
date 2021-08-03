@@ -23,3 +23,27 @@ COMPLETE THE TRANSACTION.
 6. CLICK "HOME" IN THE TOP LEFT CORNER ANYTIME TO RETURN TO THE THEATER SEARCH PAGE
 
 Web flow screenshots are in Screenshots folder.
+
+
+Files:
+
+- Web: 
+	index.xhtml: contains input form for zip code 
+	theater.xhtml: display theater with zip code and all movies available at the theater
+	movie.xhtml: detail for each movie
+	checkout.xhtml: allow user to add ticket and input payment info
+	thankyou.xhtml: thank you page
+
+- Bean:
+	bean:
+		ShowTheaterBean.java: redirect from index page to theater page with correct zip code. Perform validation for zip code.
+		ShowMovieBean.java: redirect to movie page. display detail information for each movie.
+		PaymentBean.java: redirect to checkout and thank you page. Allows user to perform payment input. Perform validation for credit card number.
+
+	ejb:
+		TheaterEJB.java: contains methods to get data from DB
+	entity:
+		Movie.java - entity for movie
+		Theater.java - entity for theater
+		TheaterMovie.java - entity for theatermovie
+- CSS files & javascript files.
