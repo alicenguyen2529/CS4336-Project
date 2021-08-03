@@ -6,7 +6,7 @@ Thinh Nguyen - BXN190007
 
 Instruction:
 
-1. Create database MovieDB with username = "scott", password = "tiger"
+1. Create database MovieDB with username = "scott", password = "tiger" using MovieDB.sql using MovieDB.sql
 
 2. Clean and build project "Theater". Run the project.
 
